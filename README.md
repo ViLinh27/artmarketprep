@@ -41,7 +41,8 @@ This was the second version:
 
 I build a basic skeleton. There's the Homepage.py file in the root folder. There's all the other pages in the pages folder(still inside the root folder).
 
-#### Infinite Loop and Wrong File Structure
+<details>
+<summary> <h4> Infinite Loop and Wrong File Structure </h4> </summary>
 
 With my original project structure and the use of a dictionary to try to group my navigation pages I had an infinite loop on the homepage. The original file structure looked like this:
 
@@ -108,3 +109,9 @@ Root_Folder/
 ```
 
 Since Home is up top, it's still the first we page we land on when the main.py entry point is run.
+
+</details>
+
+#### The Homepage
+
+The goal for this page is just a blurb for instructions
