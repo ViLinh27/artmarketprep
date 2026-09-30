@@ -15,6 +15,13 @@ After all the ideas are written down. I do some visual planning. I go onto Miro 
 ### Prototyping
 
 After the flow chart is done, I go onto penpot.app (open source alternative to figma) and make some low fidelity prototypes.
+This is the overall visual planning:
+[![flowchart](./assets/flowchart.jpg)]
+This is a closer at payment tracker concept:
+[![trackers](./assets/flowchart-trackers.jpg)]
+[![paymenttracker](./assets/flowchart-paymenttracker.jpg)]
+I added some useful reference links to, and had the idea of trying to integrate google maps into the app for a commute planner:
+[![reference links](/assets/flowchart-useful%20links.jpg)]
 
 #### First Version
 
