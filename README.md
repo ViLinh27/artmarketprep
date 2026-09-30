@@ -144,7 +144,13 @@ if tasklist:
 ```
 
 1. First the user input.
-   The Text Input is where the user will type in the task for their master to do list. Pretty Self Explanatory. That task input gets put into a variable called mytask to use later.
+
+The Text Input is where the user will type in the task for their master to do list. Pretty Self Explanatory. That task input gets put into a variable called mytask to use later.
+
 2. The task list.
+
+The tasklist is initialized as an array and given as a value to streamlit's session state. Th session state helps in persisting data and sharing variables and things between runs of the app. So giving the tasklist to the sesion state makes sense because we don't know if the user will go to other pages of the app and come back (for example).
+
+Once there are things in the task list, the user will be able to see the task and a checkbox below the buttons (add and delete).
 
 </details>
