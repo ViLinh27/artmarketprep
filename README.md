@@ -162,3 +162,47 @@ Once there are things in the task list, the user will be able to see the task an
 The delete button was put above the tasklist if statement because when I had it after, the list would not update after a deletion unless I refreshed the entire page. Streamlit goes top down when executing, so putting the delete button above the task list makes sure anything that is set to delete can be deleted from the task list before the user sees the new task list.
 
 </details>
+
+<summary> <h4>The Commute Planner Page </h4> </summary>
+<details>
+The commute planner
+</details>
+
+<summary> <h4>The Itinerary Page </h4> </summary>
+<details>
+The itinerary
+</details>
+
+<summary> <h4>The Markets Applied Page </h4> </summary>
+<details>
+The markets applied page
+</details>
+
+<summary> <h4>The Inventory Page </h4> </summary>
+<details>
+The inventory
+</details>
+
+<summary> <h4>The Upfront Costs Page </h4> </summary>
+<details>
+The upfront costs
+
+<summary> <h4>The Transaction Tracker Page </h4> </summary>
+<details>
+The transaction tracker page 
+</details>
+
+<summary> <h4>The Profits Calculator Page </h4> </summary>
+<details>
+The profits calculator page
+</details>
+
+<summary> <h4>The Calendar Page </h4> </summary>
+<details>
+The calendar page
+</details>
+
+<summary> <h4>The Vendor Tracker Page </h4> </summary>
+<details>
+The vendor tracker page
+</details>
