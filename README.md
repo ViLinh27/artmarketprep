@@ -19,7 +19,7 @@ After the flow chart is done, I go onto penpot.app (open source alternative to f
 #### First Version
 
 This was the first prototype:
-[![app prototype version 1](/assets/v1-homepage-prototype.jpg)](https://design.penpot.app/#/view?file-id=24d9d841-759d-81bc-8008-b57cbdfd7117&page-id=24d9d841-759d-81bc-8008-b57cbdfd7118&section=interactions&index=0&share-id=4d62b120-e9f3-4c78-8998-c4c923e34c6a)
+[![app prototype version 1](/assets/v2-homepage-prototype.jpg)](https://design.penpot.app/#/view?file-id=24d9d841-759d-81bc-8008-b57cbdfd7117&page-id=24d9d841-759d-81bc-8008-b57cbdfd7118&section=interactions&index=0&share-id=4d62b120-e9f3-4c78-8998-c4c923e34c6a)
 
 #### Second Version
 
