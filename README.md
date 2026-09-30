@@ -58,9 +58,9 @@ Root_Folder/
 |---|--- TransactionTracker.py
 |---|--- UpfrontCosts.py
 |---|--- VendorTracker.py
+```
 
 The dictionary looked like this when Homepage.py was still the entrypoint:
-```
 
 ```
 pages = {
