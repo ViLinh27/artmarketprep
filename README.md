@@ -40,3 +40,67 @@ This was the second version:
 ### Code
 
 I build a basic skeleton. There's the Homepage.py file in the root folder. There's all the other pages in the pages folder(still inside the root folder).
+
+#### Infinite Loop and Wrong File Structure
+
+With my original project structure and the use of a dictionary to try to group my navigation pages I had an infinite loop on the homepage. The original file structure looked like this:
+
+Root_Folder/
+|--- Homepage.py
+|---/pages/
+|---|--- Calendar.py
+|---|--- CommutePlanner.py
+|---|--- Inventory.py
+|---|--- Itinerary.py
+|---|--- MarketsApplied.py
+|---|--- Profits.py
+|---|--- TransactionTracker.py
+|---|--- UpfrontCosts.py
+|---|--- VendorTracker.py
+
+The dictionary looked like this when Homepage.py was still the entrypoint:
+
+```
+pages = {
+    "Main":[
+        st.Page("pages/Homepage.py", title="Home"),
+        st.Page("pages/CommutePlanner.py", title="Commute Planner"),
+        st.Page("pages/Itinerary.py", title="Itinerary"),
+    ],
+    "Vendor": [
+        st.Page("pages/MarketsApplied.py", title="Markets Applied"),
+        st.Page("pages/Inventory.py", title="Inventory"),
+        st.Page("pages/UpfrontCosts.py", title="Upfront Costs"),
+        st.Page("pages/TransactionTracker.py", title="Transaction Tracker"),
+        st.Page("pages/Profits.py", title="Profits Calculator"),
+    ],
+    "Event Planner":[
+        st.Page("pages/Calendar.py", title="Calendar"),
+        st.Page("pages/VendorTracker.py", title="Vendor Tracker"),
+    ]
+}
+
+page = st.navigation(pages)
+
+page.run()
+```
+
+Since Homepage.py was in the dictionary, but also the entry point here, the page.run() made the entrypoint file call itself recursively (until the max number would be reached). So that's bad.
+
+The simple fix was changing the entry point name to a main.py. THe Homepage.py in the Main group of the dictionary would be made into a new file inside the pages folder so the new file structure looked like this:
+
+Root_Folder/
+|--- main.py
+|---/pages/
+|---|--- Calendar.py
+|---|--- CommutePlanner.py
+|---|--- Homepage.py
+|---|--- Inventory.py
+|---|--- Itinerary.py
+|---|--- MarketsApplied.py
+|---|--- Profits.py
+|---|--- TransactionTracker.py
+|---|--- UpfrontCosts.py
+|---|--- VendorTracker.py
+
+Since Home is up top, it's still the first we page we land on when the main.py entry point is run.
