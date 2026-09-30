@@ -26,4 +26,4 @@ if deletetaskbtn:
 if tasklist:
     st.write("Master TO DO list:")
     for task in tasklist:
-        st.write(f"- {task}")
+        st.checkbox(f" {task}")

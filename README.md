@@ -111,6 +111,40 @@ Since Home is up top, it's still the first we page we land on when the main.py e
 
 </details>
 
-#### The Homepage
+<summary> <h4>The Homepage</h4> </summary>
+<details>
+The goal for this page is just a blurb for instructions and a place for a master to do list for the artist(user)'s planning process. The artist can add whatever task needs to be done. And check the task off when needed. The tasks are put into a queue (basically) so the delete button just deletes the last task put into the list for now. My goal is to make the delete button delete custom tasks eventually.
 
-The goal for this page is just a blurb for instructions
+This is the code below the main title of the homepage:
+
+```
+st.write("This is a master to do list for prepping for the art market. ")
+mytask = st.text_input("Enter any task you need to do here: ")
+
+tasklist = st.session_state.get("tasks", [])
+if st.button("Add Task"):
+    tasklist.append(mytask)
+    st.session_state.tasks = tasklist
+    st.success("Task added!")
+
+##------Figure out how to delete custom task later -------
+deletetaskbtn = st.button("Delete Last Task")
+if deletetaskbtn:
+    if tasklist:
+        tasklist.pop()
+        st.session_state.tasks = tasklist
+        st.success("Last task deleted!")
+    else:
+        st.warning("No tasks to delete.")
+
+if tasklist:
+    st.write("Master TO DO list:")
+    for task in tasklist:
+        st.checkbox(f" {task}")
+```
+
+1. First the user input.
+   The Text Input is where the user will type in the task for their master to do list. Pretty Self Explanatory. That task input gets put into a variable called mytask to use later.
+2. The task list.
+
+</details>
