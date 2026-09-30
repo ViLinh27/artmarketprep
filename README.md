@@ -157,4 +157,8 @@ The tasklist is initialized as an array and given as a value to streamlit's sess
 
 Once there are things in the task list, the user will be able to see the task and a checkbox below the buttons (add and delete).
 
+3. The Delete button
+
+The delete button was put above the tasklist if statement because when I had it after, the list would not update after a deletion unless I refreshed the entire page. Streamlit goes top down when executing, so putting the delete button above the task list makes sure anything that is set to delete can be deleted from the task list before the user sees the new task list.
+
 </details>
