@@ -45,6 +45,7 @@ I build a basic skeleton. There's the Homepage.py file in the root folder. There
 
 With my original project structure and the use of a dictionary to try to group my navigation pages I had an infinite loop on the homepage. The original file structure looked like this:
 
+```
 Root_Folder/
 |--- Homepage.py
 |---/pages/
@@ -59,6 +60,7 @@ Root_Folder/
 |---|--- VendorTracker.py
 
 The dictionary looked like this when Homepage.py was still the entrypoint:
+```
 
 ```
 pages = {
@@ -89,6 +91,7 @@ Since Homepage.py was in the dictionary, but also the entry point here, the page
 
 The simple fix was changing the entry point name to a main.py. THe Homepage.py in the Main group of the dictionary would be made into a new file inside the pages folder so the new file structure looked like this:
 
+```
 Root_Folder/
 |--- main.py
 |---/pages/
@@ -102,5 +105,6 @@ Root_Folder/
 |---|--- TransactionTracker.py
 |---|--- UpfrontCosts.py
 |---|--- VendorTracker.py
+```
 
 Since Home is up top, it's still the first we page we land on when the main.py entry point is run.
