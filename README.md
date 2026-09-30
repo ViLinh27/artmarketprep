@@ -186,6 +186,7 @@ The inventory
 <summary> <h4>The Upfront Costs Page </h4> </summary>
 <details>
 The upfront costs
+</details>
 
 <summary> <h4>The Transaction Tracker Page </h4> </summary>
 <details>
@@ -206,3 +207,5 @@ The calendar page
 <details>
 The vendor tracker page
 </details>
+
+### Styling & making the app look pretty
