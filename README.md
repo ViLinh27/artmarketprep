@@ -8,8 +8,8 @@ This is a web app made in streamlit that is meant to streamline the prep work fo
 
 I started concepting out some ideas and notes for what I wanted the app to do. This means writing down a list of features and asking some artists what is involved in both the vendor side of planning artist market events and the host side of those same events.
 
-### Visual Planning
-
+<summary> <h3>Visual Planning</h3> </summary>
+<details>
 After all the ideas are written down. I do some visual planning. I go onto Miro to help plan out those ideas in a way I could visually plan out.
 
 This is the overall visual planning:
@@ -21,6 +21,8 @@ This is a closer loook at the payment tracker concept:
 
 I added some useful reference links to, and had the idea of trying to integrate google maps into the app for a commute planner:
 ![reference links](/assets/flowchart-useful%20links.jpg)
+
+</details>
 
 ### Prototyping
 
