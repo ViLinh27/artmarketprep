@@ -206,8 +206,11 @@ The calendar page
 <summary> <h4>The Vendor Tracker Page </h4> </summary>
 <details>
 The vendor tracker page is for event planners. This page will help track applicants to their events. The event planners will be able to track applicant status and who among those approved payed their fees.
-<h5>Starting out with the vendor tracker database</h5>
+
+#### Starting out with the vendor tracker database
+
 This is the code I started out with:
+
 ```
 import streamlit as st
 from vendorTracker_db import(
@@ -242,12 +245,16 @@ st.success("All vendors have been deleted.")
 st.write("Track Vendors")
 vendors_df = get_vendors()
 st.dataframe(vendors_df)
-
 ```
+
 Overall it's a good start. I can enter in the appropriate vendor information. The dataframe displays it (mostly) correctly. The delee all vendors works (with some caveats). Now i need to think about two things (for now):
 1: Updating individual vendor status
 2: Using the values of approved vendors into the new database to track if vendor fees were payed
+
 </details>
 
 ### Styling & making the app look pretty
+
+```
+
 ```
