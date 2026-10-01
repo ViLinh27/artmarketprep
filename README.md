@@ -248,8 +248,10 @@ st.dataframe(vendors_df)
 ```
 
 Overall it's a good start. I can enter in the appropriate vendor information. The dataframe displays it (mostly) correctly. The delee all vendors works (with some caveats). Now i need to think about two things (for now):
-1: Updating individual vendor status
-2: Using the values of approved vendors into the new database to track if vendor fees were payed
+
+1. Updating individual vendor status
+
+2. Using the values of approved vendors into the new database to track if vendor fees were payed
 
 </details>
 
