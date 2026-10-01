@@ -8,6 +8,10 @@ from vendorTracker_db import(
     search_vendor_name,
     delete_all_vendors
 )
+from vendorFeeTracker_db import (
+    init_vendorfee_db,
+)
+
 st.title("Vendor Tracker")
 
 st.write("This is where you can track vendors who have applied to your market, including whether they are" \
@@ -15,6 +19,7 @@ st.write("This is where you can track vendors who have applied to your market, i
 
 
 init_db()  # Initialize the database for tracking vendor applicants
+init_vendorfee_db()  # Initialize the database for tracking vendor fees
 
 ## Enter vendor applicant info here:
 vendorname = st.text_input("Enter Vendor Name...")
@@ -45,3 +50,4 @@ vendors_df = get_vendors()
 st.dataframe(vendors_df)
 
 st.write("Have the approved vendors paid their fees?")
+st.dataframe()
