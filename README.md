@@ -203,8 +203,8 @@ The profits calculator page
 The calendar page
 </details>
 
-<summary> <h4>The Vendor Tracker Page </h4> </summary>
 <details>
+<summary> <h4>The Vendor Tracker Page </h4> </summary>
 The vendor tracker page is for event planners. This page will help track applicants to their events. The event planners will be able to track applicant status and who among those approved payed their fees.
 
 #### Starting out with the vendor tracker database
