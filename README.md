@@ -182,8 +182,8 @@ The markets applied page
 <summary> <h4>The Inventory Page </h4> </summary>
 The inventory page was for cataloguing inventory. It's just the one database so it was pretty self explanatory.
 Here is the main code (outside of the imports):
-```
 
+```
 st.title("Inventory Planner")
 
 st.write("This is where you can track inventory items. You write down price per item, stock quantity and the works.")
@@ -201,8 +201,8 @@ st.success("Inventory item added successfully!")
 
 inventory_df = get_inventory_items()
 st.dataframe(inventory_df)
-
 ```
+
 </details>
 
 <details>
@@ -278,7 +278,9 @@ Overall it's a good start. I can enter in the appropriate vendor information. Th
 2. Using the values of approved vendors into the new database to track if vendor fees were payed
 
 #### Updating the Vendor Status
+
 This is the code for a successful vendor status update. I might need to mess with the order of how the buttons are arranged though:
+
 ```
 
 import streamlit as st
@@ -322,11 +324,14 @@ vendors_df = get_vendors()
 st.dataframe(vendors_df)
 
 ```
+
 Now I need to see how to import approved vendors to a new database to track vendor fees.
 
 </details>
 
 ### Styling & making the app look pretty
+
+```
 
 ```
 
