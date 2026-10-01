@@ -1,7 +1,7 @@
 import streamlit as st
 
 pages = {
-    "Main":[
+    "":[
         st.Page("pages/Homepage.py", title="Home"),
         st.Page("pages/CommutePlanner.py", title="Commute Planner"),
         st.Page("pages/Itinerary.py", title="Itinerary"),

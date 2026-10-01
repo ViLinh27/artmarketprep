@@ -205,7 +205,49 @@ The calendar page
 
 <summary> <h4>The Vendor Tracker Page </h4> </summary>
 <details>
-The vendor tracker page
+The vendor tracker page is for event planners. This page will help track applicants to their events. The event planners will be able to track applicant status and who among those approved payed their fees.
+<h5>Starting out with the vendor tracker database</h5>
+This is the code I started out with:
+```
+import streamlit as st
+from vendorTracker_db import(
+    init_db,
+    add_vendor,
+    get_vendors,
+    delete_vendor,
+    update_vendor_status,
+    search_vendor_name,
+    delete_all_vendors
+)
+st.title("Vendor Tracker")
+
+st.write("This is where you can track vendors who have applied to your market, including whether they are" \
+" approved, pending, or rejected. You can also view their application details and contact information.")
+
+init_db() # Initialize the database for tracking vendor applicants
+
+vendorname = st.text_input("Enter Vendor Name...")
+vendorIG = st.text_input("Enter Vendor Instagram Tag...")
+vendorStatus = st.text_input("Enter Vendor Status (Approved, Pending, Rejected)...")
+vendorNotes = st.text_input("Enter any notes you'd like to add about this vendor applicant...")
+
+if st.button("Add Vendor"):
+add_vendor(vendorname, vendorIG, vendorStatus, vendorNotes)
+st.success("Vendor added successfully!")
+
+if st.button("Delete All Vendors"):
+delete_all_vendors()
+st.success("All vendors have been deleted.")
+
+st.write("Track Vendors")
+vendors_df = get_vendors()
+st.dataframe(vendors_df)
+
+```
+Overall it's a good start. I can enter in the appropriate vendor information. The dataframe displays it (mostly) correctly. The delee all vendors works (with some caveats). Now i need to think about two things (for now):
+1: Updating individual vendor status
+2: Using the values of approved vendors into the new database to track if vendor fees were payed
 </details>
 
 ### Styling & making the app look pretty
+```
