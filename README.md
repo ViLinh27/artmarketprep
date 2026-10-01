@@ -163,8 +163,8 @@ The delete button was put above the tasklist if statement because when I had it 
 
 </details>
 
-<summary> <h4>The Commute Planner Page </h4> </summary>
 <details>
+<summary> <h4>The Commute Planner Page </h4> </summary>
 The commute planner
 </details>
 
