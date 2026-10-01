@@ -253,6 +253,52 @@ Overall it's a good start. I can enter in the appropriate vendor information. Th
 
 2. Using the values of approved vendors into the new database to track if vendor fees were payed
 
+#### Updating the Vendor Status
+This is the code for a successful vendor status update. I might need to mess with the order of how the buttons are arranged though:
+```
+import streamlit as st
+from vendorTracker_db import(
+    init_db,
+    add_vendor,
+    get_vendors,
+    delete_vendor,
+    update_vendor_status,
+    search_vendor_name,
+    delete_all_vendors
+)
+st.title("Vendor Tracker")
+
+st.write("This is where you can track vendors who have applied to your market, including whether they are" \
+" approved, pending, or rejected. You can also view their application details and contact information.")
+
+
+init_db()  # Initialize the database for tracking vendor applicants
+
+vendorname = st.text_input("Enter Vendor Name...")
+vendorIG = st.text_input("Enter Vendor Instagram Tag...")
+vendorStatus = st.text_input("Enter Vendor Status (Approved, Pending, Rejected)...")
+vendorNotes = st.text_input("Enter any notes you'd like to add about this vendor applicant...")
+
+if st.button("Add Vendor"):
+    add_vendor(vendorname, vendorIG, vendorStatus, vendorNotes)
+    st.success("Vendor added successfully!")
+
+if st.button("Delete All Vendors"):
+    delete_all_vendors()
+    st.success("All vendors have been deleted.")
+
+vendor_update = st.text_input("Enter Vendor Name to Update Status...")
+new_status = st.text_input("Enter New Status for Vendor (Approved, Pending, Rejected)...")
+if st.button("Update Vendor Status"):
+    update_vendor_status(vendor_update, new_status)
+    st.success("Vendor status updated successfully!")
+
+st.write("Track Vendors")
+vendors_df = get_vendors()
+st.dataframe(vendors_df)
+```
+Now I need to see how to import approved vendors to a new database to track vendor fees.
+
 </details>
 
 ### Styling & making the app look pretty
