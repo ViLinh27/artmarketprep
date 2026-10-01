@@ -25,7 +25,7 @@ I added some useful reference links to, and had the idea of trying to integrate 
 </details>
 
 <details>
-<summary> <h3>Prototyping</h3> <summary>
+<summary><h3>Prototyping</h3><summary>
 After the flow chart is done, I go onto penpot.app (open source alternative to figma) and make some low fidelity prototypes.
 
 #### First Version
