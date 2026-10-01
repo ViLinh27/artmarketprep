@@ -180,7 +180,29 @@ The markets applied page
 
 <details>
 <summary> <h4>The Inventory Page </h4> </summary>
-The inventory
+The inventory page was for cataloguing inventory. It's just the one database so it was pretty self explanatory.
+Here is the main code (outside of the imports):
+```
+
+st.title("Inventory Planner")
+
+st.write("This is where you can track inventory items. You write down price per item, stock quantity and the works.")
+
+init_inventory_db() # Initialize the database for tracking inventory items
+
+item_name = st.text_input("Enter Item Name...")
+item_stock = st.number_input("Enter Stock Quantity...", min_value=0, step=1)
+item_price = st.number_input("Enter Price per Item...", min_value=0.0, step=0.01)
+item_notes = st.text_input("Enter any notes you'd like to add about this inventory item...")
+
+if st.button("Add Inventory Item"):
+add_inventory_item(item_name, item_stock, item_price, item_notes)
+st.success("Inventory item added successfully!")
+
+inventory_df = get_inventory_items()
+st.dataframe(inventory_df)
+
+```
 </details>
 
 <details>
@@ -190,7 +212,7 @@ The upfront costs
 
 <details>
 <summary> <h4>The Transaction Tracker Page </h4> </summary>
-The transaction tracker page 
+The transaction tracker page
 </details>
 
 <details>
@@ -212,15 +234,16 @@ The vendor tracker page is for event planners. This page will help track applica
 This is the code I started out with:
 
 ```
+
 import streamlit as st
 from vendorTracker_db import(
-    init_db,
-    add_vendor,
-    get_vendors,
-    delete_vendor,
-    update_vendor_status,
-    search_vendor_name,
-    delete_all_vendors
+init_db,
+add_vendor,
+get_vendors,
+delete_vendor,
+update_vendor_status,
+search_vendor_name,
+delete_all_vendors
 )
 st.title("Vendor Tracker")
 
@@ -245,6 +268,7 @@ st.success("All vendors have been deleted.")
 st.write("Track Vendors")
 vendors_df = get_vendors()
 st.dataframe(vendors_df)
+
 ```
 
 Overall it's a good start. I can enter in the appropriate vendor information. The dataframe displays it (mostly) correctly. The delee all vendors works (with some caveats). Now i need to think about two things (for now):
@@ -256,23 +280,23 @@ Overall it's a good start. I can enter in the appropriate vendor information. Th
 #### Updating the Vendor Status
 This is the code for a successful vendor status update. I might need to mess with the order of how the buttons are arranged though:
 ```
+
 import streamlit as st
 from vendorTracker_db import(
-    init_db,
-    add_vendor,
-    get_vendors,
-    delete_vendor,
-    update_vendor_status,
-    search_vendor_name,
-    delete_all_vendors
+init_db,
+add_vendor,
+get_vendors,
+delete_vendor,
+update_vendor_status,
+search_vendor_name,
+delete_all_vendors
 )
 st.title("Vendor Tracker")
 
 st.write("This is where you can track vendors who have applied to your market, including whether they are" \
 " approved, pending, or rejected. You can also view their application details and contact information.")
 
-
-init_db()  # Initialize the database for tracking vendor applicants
+init_db() # Initialize the database for tracking vendor applicants
 
 vendorname = st.text_input("Enter Vendor Name...")
 vendorIG = st.text_input("Enter Vendor Instagram Tag...")
@@ -280,28 +304,31 @@ vendorStatus = st.text_input("Enter Vendor Status (Approved, Pending, Rejected).
 vendorNotes = st.text_input("Enter any notes you'd like to add about this vendor applicant...")
 
 if st.button("Add Vendor"):
-    add_vendor(vendorname, vendorIG, vendorStatus, vendorNotes)
-    st.success("Vendor added successfully!")
+add_vendor(vendorname, vendorIG, vendorStatus, vendorNotes)
+st.success("Vendor added successfully!")
 
 if st.button("Delete All Vendors"):
-    delete_all_vendors()
-    st.success("All vendors have been deleted.")
+delete_all_vendors()
+st.success("All vendors have been deleted.")
 
 vendor_update = st.text_input("Enter Vendor Name to Update Status...")
 new_status = st.text_input("Enter New Status for Vendor (Approved, Pending, Rejected)...")
 if st.button("Update Vendor Status"):
-    update_vendor_status(vendor_update, new_status)
-    st.success("Vendor status updated successfully!")
+update_vendor_status(vendor_update, new_status)
+st.success("Vendor status updated successfully!")
 
 st.write("Track Vendors")
 vendors_df = get_vendors()
 st.dataframe(vendors_df)
+
 ```
 Now I need to see how to import approved vendors to a new database to track vendor fees.
 
 </details>
 
 ### Styling & making the app look pretty
+
+```
 
 ```
 
