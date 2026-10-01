@@ -24,8 +24,8 @@ I added some useful reference links to, and had the idea of trying to integrate 
 
 </details>
 
-<summary> <h3>Prototyping</h3> <summary>
 <details>
+<summary> <h3>Prototyping</h3> <summary>
 After the flow chart is done, I go onto penpot.app (open source alternative to figma) and make some low fidelity prototypes.
 
 #### First Version
@@ -173,28 +173,28 @@ The commute planner
 The itinerary
 </details>
 
-<summary> <h4>The Markets Applied Page </h4> </summary>
 <details>
+<summary> <h4>The Markets Applied Page </h4> </summary>
 The markets applied page
 </details>
 
-<summary> <h4>The Inventory Page </h4> </summary>
 <details>
+<summary> <h4>The Inventory Page </h4> </summary>
 The inventory
 </details>
 
-<summary> <h4>The Upfront Costs Page </h4> </summary>
 <details>
+<summary> <h4>The Upfront Costs Page </h4> </summary>
 The upfront costs
 </details>
 
-<summary> <h4>The Transaction Tracker Page </h4> </summary>
 <details>
+<summary> <h4>The Transaction Tracker Page </h4> </summary>
 The transaction tracker page 
 </details>
 
-<summary> <h4>The Profits Calculator Page </h4> </summary>
 <details>
+<summary> <h4>The Profits Calculator Page </h4> </summary>
 The profits calculator page
 </details>
 
