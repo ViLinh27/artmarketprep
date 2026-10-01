@@ -29,6 +29,12 @@ if st.button("Delete All Vendors"):
     delete_all_vendors()
     st.success("All vendors have been deleted.")
 
+vendor_update = st.text_input("Enter Vendor Name to Update Status...")
+new_status = st.text_input("Enter New Status for Vendor (Approved, Pending, Rejected)...")
+if st.button("Update Vendor Status"):
+    update_vendor_status(vendor_update, new_status)
+    st.success("Vendor status updated successfully!")
+
 st.write("Track Vendors")
 vendors_df = get_vendors()
 st.dataframe(vendors_df)
