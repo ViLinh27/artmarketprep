@@ -16,6 +16,7 @@ st.write("This is where you can track vendors who have applied to your market, i
 
 init_db()  # Initialize the database for tracking vendor applicants
 
+## Enter vendor applicant info here:
 vendorname = st.text_input("Enter Vendor Name...")
 vendorIG = st.text_input("Enter Vendor Instagram Tag...")
 vendorStatus = st.text_input("Enter Vendor Status (Approved, Pending, Rejected)...")
@@ -25,18 +26,22 @@ if st.button("Add Vendor"):
     add_vendor(vendorname, vendorIG, vendorStatus, vendorNotes)
     st.success("Vendor added successfully!")
 
-if st.button("Delete All Vendors"):
-    delete_all_vendors()
-    st.success("All vendors have been deleted.")
 
+## updating vendor status in vendor applicant tracker
 vendor_update = st.text_input("Enter Vendor Name to Update Status...")
 new_status = st.text_input("Enter New Status for Vendor (Approved, Pending, Rejected)...")
 if st.button("Update Vendor Status"):
     update_vendor_status(vendor_update, new_status)
     st.success("Vendor status updated successfully!")
 
+## view vendors in vendor applicant tracker
 st.write("Track Vendors")
+## Delete button for all vendors. May need to move it
+if st.button("Delete All Vendors"):
+    delete_all_vendors()
+    st.success("All vendors have been deleted.")
+
 vendors_df = get_vendors()
 st.dataframe(vendors_df)
 
-
+st.write("Have the approved vendors paid their fees?")
