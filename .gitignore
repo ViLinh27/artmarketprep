@@ -143,4 +143,4 @@ vite.config.ts.timestamp-*
 .vite/
 
 #toml files
-config/*.toml
+*.toml
