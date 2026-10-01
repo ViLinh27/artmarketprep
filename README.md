@@ -45,8 +45,8 @@ This was the second version:
 
 I build a basic skeleton. There's the Homepage.py file in the root folder. There's all the other pages in the pages folder(still inside the root folder).
 
-<summary> <h4> Infinite Loop and Wrong File Structure </h4> </summary>
 <details>
+<summary> <h4> Infinite Loop and Wrong File Structure </h4> </summary>
 With my original project structure and the use of a dictionary to try to group my navigation pages I had an infinite loop on the homepage. The original file structure looked like this:
 
 ```
@@ -115,8 +115,8 @@ Since Home is up top, it's still the first we page we land on when the main.py e
 
 </details>
 
-<summary> <h4>The Homepage</h4> </summary>
 <details>
+<summary> <h4>The Homepage</h4> </summary>
 The goal for this page is just a blurb for instructions and a place for a master to do list for the artist(user)'s planning process. The artist can add whatever task needs to be done. And check the task off when needed. The tasks are put into a queue (basically) so the delete button just deletes the last task put into the list for now. My goal is to make the delete button delete custom tasks eventually.
 
 This is the code below the main title of the homepage:
@@ -198,8 +198,8 @@ The transaction tracker page
 The profits calculator page
 </details>
 
-<summary> <h4>The Calendar Page </h4> </summary>
 <details>
+<summary> <h4>The Calendar Page </h4> </summary>
 The calendar page
 </details>
 
