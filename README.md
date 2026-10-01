@@ -254,7 +254,9 @@ Overall it's a good start. I can enter in the appropriate vendor information. Th
 2. Using the values of approved vendors into the new database to track if vendor fees were payed
 
 #### Updating the Vendor Status
+
 This is the code for a successful vendor status update. I might need to mess with the order of how the buttons are arranged though:
+
 ```
 import streamlit as st
 from vendorTracker_db import(
@@ -297,7 +299,13 @@ st.write("Track Vendors")
 vendors_df = get_vendors()
 st.dataframe(vendors_df)
 ```
+
 Now I need to see how to import approved vendors to a new database to track vendor fees.
+
+#### Adding approved vendors to the new database to track vendor fees of approved applicants
+
+I encountered a bug here. THe approved vendors in the new database/ dataframe is showing up several times (the first one) when i try to add a new approved vendor
+![bug 01 database issue](./assets/bug01-approvedvendorstable-bug.jpg)
 
 </details>
 

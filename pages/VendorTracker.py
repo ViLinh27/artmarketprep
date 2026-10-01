@@ -10,6 +10,8 @@ from vendorTracker_db import(
 )
 from vendorFeeTracker_db import (
     init_vendorfee_db,
+    add_vendor_fee_info,
+    get_vendor_fees
 )
 
 st.title("Vendor Tracker")
@@ -49,5 +51,26 @@ if st.button("Delete All Vendors"):
 vendors_df = get_vendors()
 st.dataframe(vendors_df)
 
-st.write("Have the approved vendors paid their fees?")
-st.dataframe()
+if not vendors_df.empty:
+    #debug
+    st.write("Approved Vendors:")
+    approved_vendors_df_demo = vendors_df[vendors_df['status'] == 'Approved']
+    st.dataframe(approved_vendors_df_demo)
+
+    if not vendors_df[vendors_df['status'] == 'Approved'].empty:
+        st.write("Have the approved vendors paid their fees?")
+        approved_vendors_df = vendors_df[vendors_df['status'] == 'Approved']
+
+        for index, row in approved_vendors_df.iterrows():
+            st.write("Vendor Name:", row['name'])#debug
+            st.write("Vendor Instagram:", row['instagram'])#debug
+            vendor_name = row['name']
+            vendor_instagram = row['instagram']
+            fee_status = "Pending"  # Default fee status for approved vendors
+            
+        add_vendor_fee_info(vendor_name, vendor_instagram, fee_status, "")
+
+        st.dataframe(get_vendor_fees())
+
+else:
+    st.write("No vendors found.")
