@@ -21,9 +21,20 @@ market_location = st.text_input("Enter Market Location...")
 application_date = st.date_input("Enter Application Date...")
 market_status = st.selectbox("Select Market Status...", ["Pending", "Accepted", "Rejected"])
 market_vendor_fee = st.number_input("Enter Market Vendor Fee...", min_value=0.0, step=0.01)
-market_notes = st.text_area("Enter any notes you'd like to add about this market application...")
+market_notes = st.text_input("Enter any notes you'd like to add about this market application...")
 
 if st.button("Add Market Application"):
     add_market_application(market_name, market_theme, market_host, market_location, application_date.strftime("%Y-%m-%d"), market_status, market_vendor_fee, market_notes)
     st.success("Market application added successfully!")
 
+## update market application status
+market_update = st.text_input("Enter Market Name to Update Status...")
+new_status = st.selectbox("Select New Status for Market Application...", ["Pending", "Accepted", "Rejected"])
+if st.button("Update Market Application Status"):
+    update_market_application_status(market_update, new_status)
+    st.success("Market application status updated successfully!")
+
+## Show market applications
+markets_df = get_market_applications()
+st.dataframe(markets_df)
+#st.write("You can expand the database by hovering over it. You'll be able to see a little pop up, click the right symbol.")

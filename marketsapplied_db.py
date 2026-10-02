@@ -44,10 +44,10 @@ def delete_market_application(application_id):
     conn.commit()
     conn.close()
 
-def update_market_application_status(application_id, new_status):
+def update_market_application_status(application_name, new_status):
     conn = sqlite3.connect('marketsapplied.db')
     c = conn.cursor()
-    c.execute('UPDATE marketsapplied SET status = ? WHERE id = ?', (new_status, application_id))
+    c.execute('UPDATE marketsapplied SET status = ? WHERE market_name = ?', (new_status, application_name))
     conn.commit()
     conn.close()
 

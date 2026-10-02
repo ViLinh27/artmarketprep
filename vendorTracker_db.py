@@ -43,6 +43,7 @@ def delete_vendor(vendor_id):
 def update_vendor_status(vendor_name, new_status):
     conn = sqlite3.connect('vendor_tracker.db')
     c = conn.cursor()
+    #print(vendor_name, new_status)  # Debugging line to check the values
     c.execute('UPDATE vendors SET status = ? WHERE name = ?', (new_status, vendor_name))
     conn.commit()
     conn.close()
