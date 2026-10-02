@@ -176,6 +176,7 @@ The itinerary
 <details>
 <summary> <h4>The Markets Applied Page </h4> </summary>
 The markets applied page is to help track the markets an artist has applied to. This is the existing code.
+
 ```
 import streamlit as st
 from marketsapplied_db import (
@@ -220,9 +221,10 @@ markets_df = get_market_applications()
 st.dataframe(markets_df)
 #st.write("You can expand the database by hovering over it. You'll be able to see a little pop up, click the right symbol.")
 
-````
+```
 
-I was having issues before (the status would not update) because my ```def update_market_application_status(application_name, new_status)``` used the id as a paramter instead of the name (not user friendly). I used the ```update_vendor_status(vendor_name, new_status)``` from the vendorTracker_db.py as a base and the marketsapplied_db.py functions work fine now (the one anyway).
+I was having issues before (the status would not update) because my `def update_market_application_status(application_name, new_status)` used the id as a paramter instead of the name (not user friendly). I used the `update_vendor_status(vendor_name, new_status)` from the vendorTracker_db.py as a base and the marketsapplied_db.py functions work fine now (the one anyway).
+
 </details>
 
 <details>
@@ -230,7 +232,7 @@ I was having issues before (the status would not update) because my ```def updat
 The inventory page was for cataloguing inventory. It's just the one database so it was pretty self explanatory.
 Here is the main code (outside of the imports):
 
-````
+```
 
 st.title("Inventory Planner")
 
@@ -379,6 +381,8 @@ Now I need to see how to import approved vendors to a new database to track vend
 </details>
 
 ### Styling & making the app look pretty
+
+```
 
 ```
 
