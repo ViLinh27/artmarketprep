@@ -170,7 +170,12 @@ The commute planner
 
 <details>
 <summary> <h4>The Itinerary Page </h4> </summary>
-The itinerary
+The itinerary page is to help plan events. This works for both vendors and event organizers so everyone knows what to expect.
+
+I'll have to eventually think about whether i want the itinerary to be a checklist and be able to rearrange the events or not.
+
+##### Bug: if I put an earlier event after a later event, the event needs to automatically show before the later event
+
 </details>
 
 <details>
