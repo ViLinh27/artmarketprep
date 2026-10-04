@@ -8,10 +8,10 @@ def init_commute_db():
     c.execute('''
     CREATE TABLE IF NOT EXISTS commuteplanner(
               id INTEGER PRIMARY KEY AUTOINCREMENT,
-              commute_step INTEGER PRIMARY KEY AUTOINCREMENT,
+              commute_step INTEGER NOT NULL,
               market_date TEXT NOT NULL,
               time_to_leave TEXT NOT NULL,
-              eta TEXT NOT NULL
+              eta TEXT NOT NULL,
               traffic TEXT NOT NULL
         )
     ''')
