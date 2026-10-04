@@ -24,3 +24,11 @@ time_to_leave = st.text_input("When are you leaving?")
 eta = st.text_input("When do you expect to get there?")
 traffic = st.text_input("How's the traffic?")
 
+## add step to commute plan
+if st.button("Add to Commute Plan"):
+    add_commute_step(commute_step,market_date,time_to_leave,eta,traffic)
+    st.success("Step in Commute Plan Added Successfully")
+
+#view db here
+commute_df = get_commute_plan()
+st.dataframe(commute_df)
