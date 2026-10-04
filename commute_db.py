@@ -37,7 +37,7 @@ def get_commute_plan():
 def delete_commute_step(commute_step):
     conn = sqlite3.connect('commuteplanner.db')
     c = conn.cursor()
-    c.execute('delete from commuteplanner WHERE commute_step = ?', (commute_step,))
+    c.execute('DELETE FROM commuteplanner WHERE commute_step = ?', (commute_step,))
     conn.commit()
     conn.close()
 

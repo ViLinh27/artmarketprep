@@ -19,7 +19,7 @@ init_commute_db() #initialize commute planner db
 commute_step = st.number_input(
     "What step in the commute plan is this? ", value=None, placeholder="Type a number..."
 )
-market_date = st.text_input("What's the date of the market?")
+market_date = st.text_input("What's the date of the market?", placeholder="YYYY-MM-DD")
 time_to_leave = st.text_input("When are you leaving?")
 eta = st.text_input("When do you expect to get there?")
 traffic = st.text_input("How's the traffic?")
