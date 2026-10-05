@@ -320,7 +320,10 @@ def update_fee_status(fee_desc):
 
 <details>
 <summary> <h4>The Transaction Tracker Page </h4> </summary>
-The transaction tracker page
+The transaction tracker page is to track customer transactions from markets.
+
+So far I'm having trouble with populating the database with the selectbox options for payment methods. I haven't tried using a tuple yet, so I'll see how that goes.
+
 </details>
 
 <details>
