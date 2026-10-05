@@ -51,6 +51,6 @@ def update_commute_step(commute_step,new_time_to_leave):
 def delete_all_commute_plan():
     conn = sqlite3.connect('commuteplanner.db')
     c = conn.cursor()
-    c.execute('DELETE form commmuteplanner')
+    c.execute('DELETE from commmuteplanner')
     conn.commit()
     conn.close()
