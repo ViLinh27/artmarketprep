@@ -9,20 +9,21 @@ def init_upfront():
         CREATE TABLE IF NOT EXISTS upfront(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             fee INTEGER NOT NULL,
+            fee_desc TEXT NOT NULL,
             due_date TEXT NOT NULL,
-            payed BOOL NOT NULL      
+            payed TEXT NOT NULL      
         )
     ''')
     conn.commit()
     conn.close()
 
-def add_upfront_cost(fee,due_date, payed):
+def add_upfront_cost(fee,fee_desc, due_date, payed):
     conn = sqlite3.connect('upfront.db')
     c = conn.cursor()
     c.execute('''
-        INSERT INTO upfront (fee,due_date, payed)
-        VALUES(?,?,?)
-    '''),(fee,due_date,payed)
+        INSERT INTO upfront (fee, fee_desc, due_date, payed)
+        VALUES(?,?,?,?)
+    ''',(fee,fee_desc, due_date,"True" if payed else "False"))
     conn.commit()
     conn.close()
 
@@ -32,17 +33,17 @@ def get_upfront_costs():
     conn.close()
     return df
 
-def delete_upfront_cost(fee):
+def delete_upfront_cost(fee_desc):
     conn = sqlite3.connect('upfront.db')
     c = conn.cursor()
-    c.execute('DELETE FROM upfront WHERE fee = ?',(fee))
+    c.execute('DELETE FROM upfront WHERE fee_desc = ?',(fee_desc))
     conn.commit()
     conn.close()
 
-def update_upfront_cost(fee, new_upfront_cost):
+def update_fee_status(fee_desc):
     conn = sqlite3.connect('upfront.db')
     c = conn.cursor()
-    c.execute('UPDATE upfront upfront_cost = ? WHERE fee=?',(fee, new_upfront_cost))
+    c.execute('UPDATE upfront SET payed = CASE WHEN payed ="True" THEN "False" ELSE "True" END WHERE fee_desc=?', (fee_desc,))
     conn.commit()
     conn.close()
 
