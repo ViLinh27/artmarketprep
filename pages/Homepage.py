@@ -27,3 +27,9 @@ if tasklist:
     st.write("Master TO DO list:")
     for task in tasklist:
         st.checkbox(f" {task}")
+
+st.divider()
+st.subheader("Credits")
+st.write("The calendar widget is from this im-perativa on the streamlit forums: " \
+"https://discuss.streamlit.io/t/new-component-streamlit-calendar-a-new-way-to-create-calendar-view-in-streamlit/48383")
+st.write("The documentation for that calendar widget: https://github.com/im-perativa/streamlit-calendar")
