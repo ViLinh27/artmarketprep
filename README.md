@@ -166,6 +166,7 @@ The delete button was put above the tasklist if statement because when I had it 
 <details>
 <summary> <h4>The Commute Planner Page </h4> </summary>
 The commute planner is for planning out commute to the market location. I had issues with how to properly input data for users (like date and time) and how to handle that in the databases. Sqlite3 doesn't directly support time objects so thanks to a stackoverflow, I had to add a converter function and adapter function to properly handle the time objects. THey look like this:
+
 ```
 #adapts time object to string
 def adapt_time(t):
@@ -467,6 +468,8 @@ Now I need to see how to import approved vendors to a new database to track vend
 </details>
 
 ### Styling & making the app look pretty
+
+```
 
 ```
 
