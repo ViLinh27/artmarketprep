@@ -1,4 +1,5 @@
 import streamlit as st
+import datetime
 from itinerary_db import (
     init_itinerary_db,
     add_event,
@@ -16,8 +17,8 @@ st.write("This is where you can plan events for your market event. Whether you'r
 init_itinerary_db()  # Initialize the database for planning events
 
 ## enter event info here:
-event_date = st.text_input("Enter Event Date (YYYY-MM-DD)...", placeholder="YYYY-MM-DD")
-event_time = st.text_input("Enter Event Time (HH:MM)...")
+event_date = st.date_input("Enter Event Date", value=None)
+event_time = st.time_input("Enter Event Time (HH:MM)...")
 event_name = st.text_input("Enter Event Name...")
 event_location = st.text_input("Enter Event Location...")
 event_description = st.text_input("Enter Event Description...")

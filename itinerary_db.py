@@ -9,7 +9,7 @@ def init_itinerary_db():
         CREATE TABLE IF NOT EXISTS itinerary (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             event_date TEXT NOT NULL,
-            event_time TEXT NOT NULL,
+            event_time TIMESTAMP NOT NULL,
             event_name TEXT NOT NULL,
             event_location TEXT NOT NULL,
             event_description TEXT NOT NULL,
