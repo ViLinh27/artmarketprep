@@ -1,4 +1,5 @@
 import streamlit as st
+import datetime
 from commute_db import(
     init_commute_db,
     add_commute_step,
@@ -17,11 +18,13 @@ init_commute_db() #initialize commute planner db
 
 ## enter info here:
 commute_step = st.number_input(
-    "What step in the commute plan is this? ", value=None, placeholder="Type a number..."
+    "What step in the commute plan is this? ", 
+    value=None, placeholder="Type a number...",
+    step = 1
 )
-market_date = st.text_input("What's the date of the market?", placeholder="YYYY-MM-DD")
-time_to_leave = st.text_input("When are you leaving?")
-eta = st.text_input("When do you expect to get there?")
+market_date = st.date_input("What's the date of the market?",value=None)
+time_to_leave = st.time_input("When are you leaving?")
+eta = st.time_input("When do you expect to get there?")
 traffic = st.text_input("How's the traffic?")
 
 ## add step to commute plan

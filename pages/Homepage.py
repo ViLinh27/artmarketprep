@@ -33,3 +33,5 @@ st.subheader("Credits")
 st.write("The calendar widget is from this im-perativa on the streamlit forums: " \
 "https://discuss.streamlit.io/t/new-component-streamlit-calendar-a-new-way-to-create-calendar-view-in-streamlit/48383")
 st.write("The documentation for that calendar widget: https://github.com/im-perativa/streamlit-calendar")
+st.write("Some documentation for the time conversion issue (for databases): https://stackoverflow.com/questions/27640857/best-way-to-store-python-datetime-time-in-a-sqlite3-column")
+st.write("https://www.sqlite.org/datatype3.html")
