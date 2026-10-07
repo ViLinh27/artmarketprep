@@ -40,16 +40,17 @@ if st.button("Update Vendor Status"):
     update_vendor_status(vendor_update, new_status)
     st.success("Vendor status updated successfully!")
 
+## Delete button for all vendors. May need to move it
+if st.button("Delete All Vendors"):
+    delete_all_vendors()
+    st.success("All vendors have been deleted.")
+
 ## view vendors in vendor applicant tracker
 st.write("Track Vendors")
 
 vendors_df = get_vendors()
 st.dataframe(vendors_df)
 
-## Delete button for all vendors. May need to move it
-if st.button("Delete All Vendors"):
-    delete_all_vendors()
-    st.success("All vendors have been deleted.")
 
 st.divider()
 st.subheader("Approved Vendors")
