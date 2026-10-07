@@ -16,7 +16,7 @@ init_upfront()
 #enter costs info here:
 upfront_fees = st.number_input("What upfront cost is this?", value=None, placeholder="Type a number...")
 fee_name = st.text_input("What is this fee? ", placeholder="Type in the fee description")
-fee_due_date = st.text_input("When's the due date of the fee?", placeholder="YYYY-MM-DD")
+fee_due_date = st.date_input("When's the due date of the fee?")
 payed_fee = st.toggle("Have you payed the fee? Toggle on For Yes, leave off for No")
 
 # add cost here

@@ -165,7 +165,30 @@ The delete button was put above the tasklist if statement because when I had it 
 
 <details>
 <summary> <h4>The Commute Planner Page </h4> </summary>
-The commute planner
+The commute planner is for planning out commute to the market location. I had issues with how to properly input data for users (like date and time) and how to handle that in the databases. Sqlite3 doesn't directly support time objects so thanks to a stackoverflow, I had to add a converter function and adapter function to properly handle the time objects. THey look like this:
+
+```
+#adapts time object to string
+def adapt_time(t):
+    return t.isoformat()
+#converts string back to time
+def convert_time(s):
+    return datetime.time.fromisoformat(s.decode('utf-8'))
+
+sqlite3.register_adapter(datetime.time, adapt_time)
+sqlite3.register_converter("TIME", convert_time)
+
+#opens connection with type detection enabled
+conn = sqlite3.connect(":memory:", detect_types=sqlite3.PARSE_DECLTYPES)
+
+# PARSE_DECLTYPES forces sqlite3 to look at delclared column TIME
+
+cursor = conn.cursor()
+
+```
+
+Date objects got converted to strings and seem to display in databses just fine.
+
 </details>
 
 <details>
@@ -183,15 +206,16 @@ I'll have to eventually think about whether i want the itinerary to be a checkli
 The markets applied page is to help track the markets an artist has applied to. This is the existing code.
 
 ```
+
 import streamlit as st
 from marketsapplied_db import (
-    init_marketsapplied_db,
-    add_market_application,
-    get_market_applications,
-    delete_market_application,
-    update_market_application_status,
-    search_market_name,
-    delete_all_market_applications
+init_marketsapplied_db,
+add_market_application,
+get_market_applications,
+delete_market_application,
+update_market_application_status,
+search_market_name,
+delete_all_market_applications
 )
 
 st.title("Markets Applied")
@@ -269,10 +293,10 @@ The upfront costs are for tracking any upfront fees before market events. The ma
 
 import streamlit as st
 from upfront_db import(
-    init_upfront,
-    add_upfront_cost,
-    get_upfront_costs,
-    update_fee_status
+init_upfront,
+add_upfront_cost,
+get_upfront_costs,
+update_fee_status
 )
 st.title("Upfront Costs")
 
@@ -289,19 +313,21 @@ fee_due_date = st.text_input("When's the due date of the fee?", placeholder="YYY
 payed_fee = st.toggle("Have you payed the fee? Toggle on For Yes, leave off for No")
 
 # add cost here
+
 if st.button("Add Upfront Cost"):
-    add_upfront_cost(upfront_fees,fee_name,fee_due_date,payed_fee)
-    st.success("Upfront Cost added successfully")
+add_upfront_cost(upfront_fees,fee_name,fee_due_date,payed_fee)
+st.success("Upfront Cost added successfully")
 
 #update any fees here
 fee_update_name = st.text_input("What's the fee that needs a status update? ")
 if st.button("Update Fee Status"):
-    update_fee_status(fee_update_name)
+update_fee_status(fee_update_name)
 
 #view df here:
 st.divider()
 u_df = get_upfront_costs()
 st.dataframe(u_df)
+
 ```
 
 I had more problems with the database file. The update function for example, needed some fiddling with the `CASE` statement for example. This is what I ended up with:
@@ -309,11 +335,12 @@ I had more problems with the database file. The update function for example, nee
 ```
 
 def update_fee_status(fee_desc):
-    conn = sqlite3.connect('upfront.db')
-    c = conn.cursor()
-    c.execute('UPDATE upfront SET payed = CASE WHEN payed ="True" THEN "False" ELSE "True" END WHERE fee_desc=?', (fee_desc,))
-    conn.commit()
-    conn.close()
+conn = sqlite3.connect('upfront.db')
+c = conn.cursor()
+c.execute('UPDATE upfront SET payed = CASE WHEN payed ="True" THEN "False" ELSE "True" END WHERE fee_desc=?', (fee_desc,))
+conn.commit()
+conn.close()
+
 ```
 
 </details>
@@ -441,6 +468,10 @@ Now I need to see how to import approved vendors to a new database to track vend
 </details>
 
 ### Styling & making the app look pretty
+
+```
+
+```
 
 ```
 
