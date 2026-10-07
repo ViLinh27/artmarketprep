@@ -6,7 +6,8 @@ from vendorTracker_db import(
     delete_vendor,
     update_vendor_status,
     search_vendor_name,
-    delete_all_vendors
+    delete_all_vendors,
+    get_approvedVendors
 )
 from vendorFeeTracker_db import (
     init_vendorfee_db,
@@ -52,3 +53,11 @@ st.dataframe(vendors_df)
 if st.button("Delete All Vendors"):
     delete_all_vendors()
     st.success("All vendors have been deleted.")
+
+st.divider()
+
+#init_approvedVendors()
+st.subheader("Approved Vendors")
+#add_approvedVendors(vendors_df().name,vendors_df().instagram,vendors_df.notes())
+approved_df = get_approvedVendors()
+st.dataframe(approved_df)

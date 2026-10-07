@@ -307,6 +307,111 @@ Now I need to see how to import approved vendors to a new database to track vend
 I encountered a bug here. THe approved vendors in the new database/ dataframe is showing up several times (the first one) when i try to add a new approved vendor
 ![bug 01 database issue](./assets/bug01-approvedvendorstable-bug.jpg)
 
+#### Fixing the approved vendors bug
+
+This is the current code I have for the vendor tracker page:
+
+```
+import streamlit as st
+import sqlite3
+import pandas as pd
+
+def init_db():
+    conn = sqlite3.connect('vendor_tracker.db')
+    c = conn.cursor()
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS vendors (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            instagram TEXT,
+            status TEXT,
+            notes TEXT
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+def add_vendor(name, instagram, status, notes):
+    conn = sqlite3.connect('vendor_tracker.db')
+    c = conn.cursor()
+    c.execute('''
+        INSERT INTO vendors (name, instagram, status, notes)
+        VALUES (?, ?, ?, ?)
+    ''', (name, instagram, status, notes))
+    conn.commit()
+    conn.close()
+
+def get_vendors():
+    conn = sqlite3.connect('vendor_tracker.db')
+    df = pd.read_sql_query("SELECT * FROM vendors", conn)
+    conn.close()
+    return df
+
+def delete_vendor(vendor_id):
+    conn = sqlite3.connect('vendor_tracker.db')
+    c = conn.cursor()
+    c.execute('DELETE FROM vendors WHERE id = ?', (vendor_id,))
+    conn.commit()
+    conn.close()
+
+def update_vendor_status(vendor_name, new_status):
+    conn = sqlite3.connect('vendor_tracker.db')
+    c = conn.cursor()
+    c.execute('UPDATE vendors SET status = ? WHERE name = ?', (new_status, vendor_name))
+    conn.commit()
+    conn.close()
+
+def search_vendor_name(vendor_name):
+    conn = sqlite3.connect('vendor_tracker.db')
+    df = pd.read_sql_query("SELECT * FROM vendors WHERE name LIKE ?", conn, params=('%' + vendor_name + '%',))
+    conn.close()
+    return df
+
+def delete_all_vendors():
+    conn = sqlite3.connect('vendor_tracker.db')
+    c = conn.cursor()
+    c.execute('DELETE FROM vendors')
+    conn.commit()
+    conn.close()
+
+def get_approvedVendors():
+    """conn = sqlite3.connect('vendor_tracker.db')
+    df = get_vendors().name[get_vendors().status == 'Approved']
+    conn.close()
+    return df"""
+    conn = sqlite3.connect('approved_vendors.db')
+    c = conn.cursor()
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS approved_vendors (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            instagram TEXT NOT NULL,
+            feepayed DEFAULT 0,
+            notes TEXT NOT NULL
+        );
+    ''')
+    c.execute('''
+        INSERT INTO approved_vendors (name, instagram, feepayed, notes)
+              SELECT name, instagram , notes
+              FROM vendor_tracker
+    ''')
+    conn.commit()
+    conn.close()
+
+"""
+conn = sqlite3.connect('vendor_tracker.db')
+df = pd.read_sql_query("SELECT * FROM vendors", conn)
+conn.close()
+return df
+"""
+```
+
+There were several issues found. First I only had a connection to approved_vendors.db so python couldn't find where vendor_tracker was (so it basically didn't exist). I need another connection to vendor_tracker.
+
+I also had the issue of getting 3 values selected when inerting into a 4 column table so the INSERT just failed.
+
+I also didn't know SQLlite doesn't have a boolean type
+
 </details>
 
 ### Styling & making the app look pretty
