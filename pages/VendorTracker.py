@@ -6,7 +6,8 @@ from vendorTracker_db import(
     delete_vendor,
     update_vendor_status,
     search_vendor_name,
-    delete_all_vendors
+    delete_all_vendors,
+    get_approvedVendors
 )
 from vendorFeeTracker_db import (
     init_vendorfee_db,
@@ -41,13 +42,16 @@ if st.button("Update Vendor Status"):
 
 ## view vendors in vendor applicant tracker
 st.write("Track Vendors")
+
+vendors_df = get_vendors()
+st.dataframe(vendors_df)
+
 ## Delete button for all vendors. May need to move it
 if st.button("Delete All Vendors"):
     delete_all_vendors()
     st.success("All vendors have been deleted.")
 
-vendors_df = get_vendors()
-st.dataframe(vendors_df)
-
-st.write("Have the approved vendors paid their fees?")
-st.dataframe()
+st.divider()
+st.subheader("Approved Vendors")
+approved_df = get_approvedVendors()
+st.dataframe(approved_df)
