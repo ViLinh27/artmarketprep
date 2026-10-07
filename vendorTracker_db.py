@@ -97,10 +97,11 @@ def get_approvedVendors():
     for _, row in df1.iterrows():
         c.execute('''
             INSERT INTO approved_vendors (name, instagram, feepayed, notes)
-            VALUES (?,?,0,?)
+            VALUES (?,?, "False",?)
         ''', (row['name'], row['instagram'], row['notes']))
 
     #read back so user can see the data in the new table
     df2= pd.read_sql_query("SELECT * FROM approved_vendors", conn)
     conn.close()
     return df2
+
