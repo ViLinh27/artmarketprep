@@ -59,3 +59,9 @@ def delete_all_vendors():
     c.execute('DELETE FROM vendors')
     conn.commit()
     conn.close()
+
+def search_approvedVendors():
+    conn = sqlite3.connect('vendor_tracker.db')
+    df = pd.read_sql_query("SELECT * FROM vendors WHERE name status ?", conn)
+    conn.close()
+    return df
