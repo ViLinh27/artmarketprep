@@ -58,6 +58,7 @@ st.subheader("Approved Vendors")
 
 st.text_input("Which vendor payed their vendor fee? Enter their name here to udpate their status", placeholder="Enter Vendor name here...")
 if st.button("Update Vendor Fee Payed Status"):
+    
     st.success("This needs an actual function to work")
 
 approved_df = get_approvedVendors()

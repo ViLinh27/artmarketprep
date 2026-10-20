@@ -105,3 +105,6 @@ def get_approvedVendors():
     conn.close()
     return df2
 
+def update_approved_vendor_fees():
+    conn = sqlite3.connect('approved_vendors')
+    c = conn.cursor()
